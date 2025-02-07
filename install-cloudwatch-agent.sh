@@ -49,5 +49,5 @@ sudo tee "$CLOUDWATCH_AGENT_CONFIG_PATH" > /dev/null <<EOF
 EOF
 
 echo "Generated: $CLOUDWATCH_AGENT_CONFIG_PATH"
-
-sudo aws configure --profile AmazonCloudWatchAgent
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
+# sudo aws configure --profile AmazonCloudWatchAgent
